@@ -436,5 +436,4 @@ for i in range(1, 1):
 		main()
 		currentFrame = nextFrame
 		index += 1
-  
-  cap.release()
+	cap.release()
