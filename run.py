@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import cv2
+import numpy as np
 import torch
 
 import getopt
@@ -326,7 +328,7 @@ def estimate(tensorFirst, tensorSecond):
 
 ##########################################################
 
-if __name__ == '__main__':
+def main():
 	tensorFirst = torch.FloatTensor(numpy.array(PIL.Image.open(arguments_strFirst))[:, :, ::-1].transpose(2, 0, 1).astype(numpy.float32) * (1.0 / 255.0))
 	tensorSecond = torch.FloatTensor(numpy.array(PIL.Image.open(arguments_strSecond))[:, :, ::-1].transpose(2, 0, 1).astype(numpy.float32) * (1.0 / 255.0))
 
@@ -340,3 +342,19 @@ if __name__ == '__main__':
 
 	objectOutput.close()
 # end
+
+# run for video
+cap = cv2.VideoCapture('./videos/1.mp4')
+index = 0
+ret, currentFrame = cap.read()
+
+while(cap.isOpened()):
+  ret, nextFrame = cap.read()
+  cv2.imwrite('./images/first.png', currentFrame)
+  cv2.imwrite('./images/second.png', nextFrame)
+  arguments_strOut = ('./out%d.flo' % index)
+  main()
+  currentFrame = nextFrame
+  index += 1
+
+cap.release()
