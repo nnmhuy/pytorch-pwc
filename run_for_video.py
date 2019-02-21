@@ -401,10 +401,10 @@ def estimate(tensorFirst, tensorSecond):
 ##########################################################
 
 
-def main(arguments_strOut):
-	tensorFirst = torch.FloatTensor(numpy.array(PIL.Image.open(arguments_strFirst))[
+def main(arguments_strOut, currentFrame, nextFrame):
+	tensorFirst = torch.FloatTensor(numpy.array(currentFrame)[
 	                                :, :, ::-1].transpose(2, 0, 1).astype(numpy.float32) * (1.0 / 255.0))
-	tensorSecond = torch.FloatTensor(numpy.array(PIL.Image.open(arguments_strSecond))[
+	tensorSecond = torch.FloatTensor(numpy.array(nextFrame)[
 	                                 :, :, ::-1].transpose(2, 0, 1).astype(numpy.float32) * (1.0 / 255.0))
 
 	tensorOutput = estimate(tensorFirst, tensorSecond)
@@ -417,26 +417,24 @@ def main(arguments_strOut):
 	numpy.array(tensorOutput.numpy().transpose(
 		1, 2, 0), numpy.float32).tofile(objectOutput)
 
-	print(arguments_strOut)
-
 	objectOutput.close()
 # end
 
 # run for video
 
 
-for i in range(1, 2):
-	print ('checkpoint 1')
+for i in range(2, 10):
+	print ('Video %d' % i)
+	os.makedirs('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
 	cap = cv2.VideoCapture('/content/drive/My Drive/AI city challenge 2019/videos/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
-		cv2.imwrite('./images/first.png', currentFrame)
-		cv2.imwrite('./images/second.png', nextFrame)
+		# cv2.imwrite('./images/first.png', currentFrame)
+		# cv2.imwrite('./images/second.png', nextFrame)
 		arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % (i, index)
-		# arguments_strOut = './out.flo'
-		main(arguments_strOut)
+		main(arguments_strOut, currentFrame, nextFrame)
 		currentFrame = nextFrame
 		index += 1
 	cap.release()
