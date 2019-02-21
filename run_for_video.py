@@ -425,7 +425,8 @@ def main(arguments_strOut):
 # run for video
 
 
-for i in range(1, 1):
+for i in range(1, 2):
+	print ('checkpoint 1')
 	cap = cv2.VideoCapture('/content/drive/My Drive/AI city challenge 2019/videos/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
@@ -433,8 +434,8 @@ for i in range(1, 1):
 		ret, nextFrame = cap.read()
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
-		# arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/flow%d.flo' % index
-		arguments_strOut = './out.flo'
+		arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % i, index
+		# arguments_strOut = './out.flo'
 		main(arguments_strOut)
 		currentFrame = nextFrame
 		index += 1
