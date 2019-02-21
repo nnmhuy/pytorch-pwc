@@ -401,7 +401,7 @@ def estimate(tensorFirst, tensorSecond):
 ##########################################################
 
 
-def main():
+def main(arguments_strOut):
 	tensorFirst = torch.FloatTensor(numpy.array(PIL.Image.open(arguments_strFirst))[
 	                                :, :, ::-1].transpose(2, 0, 1).astype(numpy.float32) * (1.0 / 255.0))
 	tensorSecond = torch.FloatTensor(numpy.array(PIL.Image.open(arguments_strSecond))[
@@ -433,7 +433,7 @@ for i in range(1, 1):
 		cv2.imwrite('./images/second.png', nextFrame)
 		# arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/flow%d.flo' % index
 		arguments_strOut = './out.flo'
-		main()
+		main(arguments_strOut)
 		currentFrame = nextFrame
 		index += 1
 	cap.release()
