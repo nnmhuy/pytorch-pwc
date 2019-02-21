@@ -431,8 +431,8 @@ for i in range(1, 1):
 		ret, nextFrame = cap.read()
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
-		arguments_strOut = (
-			'/content/drive/My Drive/AI city challenge 2019/flow/flow%d.flo' % index)
+		# arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/flow%d.flo' % index
+		arguments_strOut = './out.flo'
 		main()
 		currentFrame = nextFrame
 		index += 1
