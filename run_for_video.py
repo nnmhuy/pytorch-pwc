@@ -417,6 +417,8 @@ def main(arguments_strOut):
 	numpy.array(tensorOutput.numpy().transpose(
 		1, 2, 0), numpy.float32).tofile(objectOutput)
 
+	print(arguments_strOut)
+
 	objectOutput.close()
 # end
 
