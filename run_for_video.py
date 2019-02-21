@@ -432,7 +432,7 @@ for i in range(1, 1):
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
 		arguments_strOut = (
-			'/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % i, index)
+			'/content/drive/My Drive/AI city challenge 2019/flow/flow%d.flo' % index)
 		main()
 		currentFrame = nextFrame
 		index += 1
