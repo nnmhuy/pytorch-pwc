@@ -425,7 +425,7 @@ def main(arguments_strOut, currentFrame, nextFrame):
 
 for i in range(1, 2):
 	print ('Video %d' % i)
-	os.makedirs('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
+	# os.makedirs('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
 	cap = cv2.VideoCapture('/content/drive/My Drive/AI city challenge 2019/videos/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
