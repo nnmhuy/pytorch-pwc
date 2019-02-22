@@ -434,10 +434,12 @@ for i in range(1, 2):
 		# cv2.imwrite('./images/first.png', currentFrame)
 		# cv2.imwrite('./images/second.png', nextFrame)
 		# arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % (i, index)
-		arguments_strOut = './flow%d.flo' % i
+		arguments_strOut = './flow/flow%d.flo' % i
 		if (index % 300 == 0):
 			print(arguments_strOut)
 		main(arguments_strOut, currentFrame, nextFrame)
 		currentFrame = nextFrame
 		index += 1
+		if (index === 1800):
+			break
 	cap.release()
