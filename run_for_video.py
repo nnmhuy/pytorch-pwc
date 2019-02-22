@@ -410,8 +410,6 @@ def main(arguments_strOut):
 
 	tensorOutput = estimate(tensorFirst, tensorSecond)
 
-	print(arguments_strOut)
-
 	objectOutput = open(arguments_strOut, 'wb')
 
 	numpy.array([80, 73, 69, 72], numpy.uint8).tofile(objectOutput)
@@ -445,5 +443,8 @@ for i in range(1, 2):
 		# arguments_strOut = './out.flo'
 		main(arguments_strOut)
 		currentFrame = nextFrame
+		index += 1
+		if (index % 100 == 0):
+			print(arguments_strOut)
 
 	cap.release()
