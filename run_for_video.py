@@ -402,9 +402,9 @@ def estimate(tensorFirst, tensorSecond):
 
 
 def main(arguments_strOut, currentFrame, nextFrame):
-	tensorFirst = torch.FloatTensor(numpy.array(currentFrame)[
+	tensorFirst = torch.FloatTensor(currentFrame[
 	                                :, :, ::-1].transpose(2, 0, 1).astype(numpy.float32) * (1.0 / 255.0))
-	tensorSecond = torch.FloatTensor(numpy.array(nextFrame)[
+	tensorSecond = torch.FloatTensor(nextFrame[
 	                                 :, :, ::-1].transpose(2, 0, 1).astype(numpy.float32) * (1.0 / 255.0))
 
 	tensorOutput = estimate(tensorFirst, tensorSecond)
