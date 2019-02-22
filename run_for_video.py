@@ -440,6 +440,6 @@ for i in range(1, 2):
 		main(arguments_strOut, currentFrame, nextFrame)
 		currentFrame = nextFrame
 		index += 1
-		if (index === 1800):
+		if (index == 1800):
 			break
 	cap.release()
