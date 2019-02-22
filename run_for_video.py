@@ -426,7 +426,12 @@ def main(arguments_strOut):
 
 for i in range(1, 2):
 	print ('Video %d' % i)
-	os.makedirs('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
+
+	directory = ('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
+	if not os.path.exists(directory):
+		os.makedirs(directory)
+
+
 	cap = cv2.VideoCapture('/content/drive/My Drive/AI city challenge 2019/videos/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
