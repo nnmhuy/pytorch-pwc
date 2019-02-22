@@ -423,8 +423,8 @@ def main(arguments_strOut):
 
 # run for video
 
-# run from video 2 -> 2
-for i in range(2, 3):
+# run from video 33 -> 33
+for i in range(33, 34):
 	print ('Video %d' % i)
 
 	directory = ('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
