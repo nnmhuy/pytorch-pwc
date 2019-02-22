@@ -423,7 +423,7 @@ def main(arguments_strOut, currentFrame, nextFrame):
 # run for video
 
 
-for i in range(2, 10):
+for i in range(1, 2):
 	print ('Video %d' % i)
 	os.makedirs('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
 	cap = cv2.VideoCapture('/content/drive/My Drive/AI city challenge 2019/videos/%d.mp4' % i)
@@ -433,7 +433,8 @@ for i in range(2, 10):
 		ret, nextFrame = cap.read()
 		# cv2.imwrite('./images/first.png', currentFrame)
 		# cv2.imwrite('./images/second.png', nextFrame)
-		arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % (i, index)
+		# arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % (i, index)
+		arguments_strOut = './flow%d.flo' % i
 		if (index % 300 == 0):
 			print(arguments_strOut)
 		main(arguments_strOut, currentFrame, nextFrame)
