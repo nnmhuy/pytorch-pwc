@@ -442,10 +442,10 @@ for i in range(33, 34):
 	cap = cv2.VideoCapture('content/drive/My Drive/aic19-track3-train-data/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
-	print('1')
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
+		print('1')
 		if (index % 2 == 1):
 			continue
 		if (index > 600):
