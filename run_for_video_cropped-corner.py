@@ -447,6 +447,9 @@ for i in range(33, 34):
 		index += 1
 		if (index % 2 == 1):
 			continue
+		if (index > 600):
+			break
+		nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
 		arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % (i, index)
