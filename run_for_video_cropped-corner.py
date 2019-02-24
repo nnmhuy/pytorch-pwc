@@ -445,6 +445,7 @@ for i in range(33, 34):
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
+		print('%d' %i)
 		if (index % 2 == 1):
 			continue
 		if (index > 600):
