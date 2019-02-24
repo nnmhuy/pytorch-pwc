@@ -434,12 +434,12 @@ def zoomImgCorner(img):
 for i in range(33, 34):
 	print ('Video %d' % i)
 
-	directory = ('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
+	directory = ('/content/drive/My Drive/PWC-Net/flow/%d' % i)
 	if not os.path.exists(directory):
 		os.makedirs(directory)
 
 
-	cap = cv2.VideoCapture('/content/drive/My Drive/AI city challenge 2019/videos/%d.mp4' % i)
+	cap = cv2.VideoCapture('content/drive/My Drive/aic19-track3-train-data/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
 	while(cap.isOpened()):
@@ -449,7 +449,7 @@ for i in range(33, 34):
 			continue
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
-		arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % (i, index)
+		arguments_strOut = '/content/drive/My Drive/PWC-Net/flow/%d/flow%d.flo' % (i, index)
 		# arguments_strOut = './out.flo'
 		main(arguments_strOut)
 		currentFrame = nextFrame
