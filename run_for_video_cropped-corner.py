@@ -431,7 +431,7 @@ def zoomImgCorner(img):
 	return res
 
 # run from video 33 -> 33
-for i in range(33, 34):
+for i in range(91, 92):
 	print ('Video %d' % i)
 
 	directory = ('/content/drive/My Drive/PWC-Net/flow/%d' % i)
@@ -445,9 +445,11 @@ for i in range(33, 34):
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
-		if (index % 5 == 1):
+		if (index % 2 == 1):
 			continue
-		if (index > 600):
+		if (index < 17850):
+			continue
+		if (index > 18300):
 			break
 		nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
