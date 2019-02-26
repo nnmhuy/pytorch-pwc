@@ -439,7 +439,7 @@ for i in range(95, 96):
 		os.makedirs(directory)
 
 
-	cap = cv2.VideoCapture('content/drive/My Drive/aic19-track3-train-data/%d.mp4' % i)
+	cap = cv2.VideoCapture('/content/drive/My Drive/aic19-track3-train-data/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
 	while(cap.isOpened()):
