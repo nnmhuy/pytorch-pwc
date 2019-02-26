@@ -424,27 +424,30 @@ def main(arguments_strOut):
 # run for video
 
 # run from video 33 -> 33
-for i in range(33, 34):
+for i in range(95, 96):
 	print ('Video %d' % i)
 
-	directory = ('/content/drive/My Drive/AI city challenge 2019/flow/%d' % i)
+	directory = ('/content/drive/My Drive/PWC-Net/flow/%d' % i)
 	if not os.path.exists(directory):
 		os.makedirs(directory)
 
 
-	cap = cv2.VideoCapture('/content/drive/My Drive/AI city challenge 2019/videos/%d.mp4' % i)
-	index = 0
+	cap = cv2.VideoCapture('/content/drive/My Drive/aic19-track3-train-data/%d.mp4' % i)
+	index = 1
 	ret, currentFrame = cap.read()
 	while(cap.isOpened()):
-		ret, nextFrame = cap.read()
+		while (index % 5 != 0):
+			ret, nextFrame = cap.read()
+			index += 1
+			
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
-		arguments_strOut = '/content/drive/My Drive/AI city challenge 2019/flow/%d/flow%d.flo' % (i, index)
+		arguments_strOut = '/content/drive/My Drive/PWC-Net/flow/%d/flow%d.flo' % (i, index)
 		# arguments_strOut = './out.flo'
 		main(arguments_strOut)
 		currentFrame = nextFrame
-		index += 1
-		if (index % 100 == 0):
+		if (index % 300 == 0):
 			print(arguments_strOut)
+		index += 1
 
 	cap.release()
