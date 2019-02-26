@@ -445,8 +445,8 @@ for i in range(95, 96):
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
-		if (index % 5 != 0):
-			continue
+		# if (index % 5 != 0):
+		# 	continue
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
 		arguments_strOut = '/content/drive/My Drive/PWC-Net/flow/%d/flow%d.flo' % (i, index)
