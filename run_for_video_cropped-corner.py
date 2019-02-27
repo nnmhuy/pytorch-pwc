@@ -425,7 +425,7 @@ def main(arguments_strOut):
 # zoom corner
 def zoomImgCorner(img):
 	height, width = img.shape[:2]
-	crop_img = img[:0+height/8, width/2+wdith/4:width/2+width/4+width/8]
+	crop_img = img[0:0+height/8, width/2+width/4:width/2+width/4+width/8]
 
 	res = cv2.resize(crop_img,(width, height), interpolation = cv2.INTER_CUBIC)
 	return res
