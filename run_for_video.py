@@ -430,8 +430,8 @@ def zoomImgCorner(img):
 	res = cv2.resize(crop_img,(width, height), interpolation = cv2.INTER_CUBIC)
 	return res
 
-# run from video 51 -> 76
-for i in range(51, 76):
+# run from video 77 -> 100
+for i in range(77, 101):
 	print ('Video %d' % i)
 
 	directory = ('/content/drive/My Drive/AIC_2019_Train_Cut_abs(1)/flow/%d' % i)
