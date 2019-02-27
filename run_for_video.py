@@ -443,6 +443,8 @@ for i in range(1, 101):
 	ret, currentFrame = cap.read()
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
+		if (not(ret)):
+			break
 		index += 1
 		if (index % 2 != 0):
 			continue
