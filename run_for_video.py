@@ -431,7 +431,7 @@ def zoomImgCorner(img):
 	return res
 
 # run from video 50 -> 50
-for i in range(50, 51):
+for i in range(30, 33):
 	print ('Video %d' % i)
 
 	directory = ('/content/drive/My Drive/AIC_2019_Train_Cut_abs(1)/flow/%d' % i)
