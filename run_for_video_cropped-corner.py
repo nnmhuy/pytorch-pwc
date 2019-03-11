@@ -425,13 +425,13 @@ def main(arguments_strOut):
 # zoom corner
 def zoomImgCorner(img):
 	height, width = img.shape[:2]
-	crop_img = img[0:0+height/8, width/2+width/4:width/2+width/4+width/8]
+	crop_img = img[0:height/2, 0:width/2]
 
 	res = cv2.resize(crop_img,(width/2, height/2), interpolation = cv2.INTER_CUBIC)
 	return res
 
 # run from video 33 -> 33
-for i in range(33, 34):
+for i in range(91, 92):
 	print ('Video %d' % i)
 
 	directory = ('/content/drive/My Drive/PWC-Net/flow/%d' % i)
@@ -439,7 +439,7 @@ for i in range(33, 34):
 		os.makedirs(directory)
 
 
-	cap = cv2.VideoCapture('/content/drive/My Drive/aic19-track3-train-data/%d.mp4' % i)
+	cap = cv2.VideoCapture('/content/drive/My Drive/AIC_2019_Train_Cut_abs(1)/video/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
 	while(cap.isOpened()):
@@ -447,8 +447,6 @@ for i in range(33, 34):
 		index += 1
 		if (index % 2 == 1):
 			continue
-		if (index > 1000):
-			break
 		nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
