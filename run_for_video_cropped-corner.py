@@ -442,6 +442,7 @@ for i in range(91, 92):
 	cap = cv2.VideoCapture('/content/drive/My Drive/AIC_2019_Train_Cut_abs(1)/video/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
+	flowIndex = 0
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
@@ -450,7 +451,8 @@ for i in range(91, 92):
 		nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
-		arguments_strOut = '/content/drive/My Drive/PWC-Net/flow/%d/flow%d.flo' % (i, index)
+		flowIndex += 1
+		arguments_strOut = '/content/drive/My Drive/PWC-Net/flow/%d/flow%d.flo' % (i, flowIndex)
 		# arguments_strOut = './out.flo'
 		main(arguments_strOut)
 		currentFrame = nextFrame
