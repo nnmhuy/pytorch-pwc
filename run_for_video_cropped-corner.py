@@ -425,12 +425,12 @@ def main(arguments_strOut):
 # zoom corner
 def zoomImgCorner(img):
 	height, width = img.shape[:2]
-	crop_img = img[0:0+height/2, 0:0+width/2]
+	crop_img = img[height/2:height, width/2:width]
 	res = cv2.resize(crop_img,(width, height), interpolation = cv2.INTER_CUBIC)
 	return res
 
 # run from video 33 -> 33
-for i in range(91, 92):
+for i in range(14, 15):
 	print ('Video %d' % i)
 
 	directory = ('/content/drive/My Drive/PWC-Net/flow/%d' % i)
