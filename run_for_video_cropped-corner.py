@@ -444,17 +444,17 @@ for i in range(14, 15):
 	index = 0
 	ret, currentFrame = cap.read()
 	currentFrame = zoomImgCorner(currentFrame)
-	fgmask = fgbg.apply(frame)
+	fgmask = fgbg.apply(currentFrame)
 	currentFrame = cv2.bitwise_and(currentFrame, currentFrame, mask = fgmask)
 	flowIndex = 0
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		
-		fgmask = fgbg.apply(frame)
-		nextFrame = cv2.bitwise_and(nextFrame, nextFrame, mask = fgmask)
+		fgmask = fgbg.apply(nextFrame)
+		nextFrame = cv2.bitwise_and(nextFrame, nextFrames, mask = fgmask)
 
 		index += 1
-		if (index % 16 != 0):
+		if (index % 4 != 0):
 			continue
 		nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
