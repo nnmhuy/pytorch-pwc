@@ -427,7 +427,7 @@ def zoomImgCorner(img):
 	height, width = img.shape[:2]
 	crop_img = img[0:height/2, width/2:width]
 	res = crop_img
-	# res = cv2.resize(crop_img,(width, height), interpolation = cv2.INTER_CUBIC)
+	res = cv2.resize(crop_img,(width, height), interpolation = cv2.INTER_CUBIC)
 	return res
 
 # run from video 33 -> 33
@@ -442,14 +442,14 @@ for i in range(14, 15):
 	cap = cv2.VideoCapture('/content/drive/My Drive/AIC_2019_Train_Cut_abs(1)/video/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
-	# currentFrame = zoomImgCorner(currentFrame)
+	currentFrame = zoomImgCorner(currentFrame)
 	flowIndex = 0
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
 		if (index % 16 != 0):
 			continue
-		# nextFrame = zoomImgCorner(nextFrame)
+		nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
 		flowIndex += 1
