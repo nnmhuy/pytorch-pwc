@@ -459,7 +459,7 @@ for i in range(14, 15):
 		currentFrame = nextFrame
 		if (index % 100 == 0):
 			print(arguments_strOut)
-		if (flowIndex % 10 == 0): 
+		if (flowIndex % 30 == 0): 
 			break
 
 	cap.release()
