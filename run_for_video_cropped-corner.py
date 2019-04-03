@@ -447,8 +447,8 @@ for i in range(14, 15):
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
-		if (index % 16 != 0):
-			continue
+		# if (index % 16 != 0):
+		# 	continue
 		nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
