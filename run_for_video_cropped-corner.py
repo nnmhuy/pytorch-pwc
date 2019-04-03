@@ -453,7 +453,7 @@ for i in range(14, 15):
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
 		flowIndex += 1
-		arguments_strOut = '/content/drive/My Drive/PWC-Net/flow/%d/flow%d.flo' % (i, flowIndex)
+		arguments_strOut = '/content/drive/My Drive/PWC-Net/flow/skipframe/%d/flow%d.flo' % (i, flowIndex)
 		# arguments_strOut = './out.flo'
 		main(arguments_strOut)
 		currentFrame = nextFrame
