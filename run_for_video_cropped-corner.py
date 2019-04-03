@@ -440,12 +440,19 @@ for i in range(14, 15):
 
 
 	cap = cv2.VideoCapture('/content/drive/My Drive/AIC_2019_Train_Cut_abs(1)/video/%d.mp4' % i)
+	fgbg = cv2.bgsegm.createBackgroundSubtractorMOG2()
 	index = 0
 	ret, currentFrame = cap.read()
 	currentFrame = zoomImgCorner(currentFrame)
+	fgmask = fgbg.apply(frame)
+	currentFrame = cv2.bitwise_and(img, img, mask = fgmask)
 	flowIndex = 0
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
+		
+		fgmask = fgbg.apply(frame)
+		nextFrame = cv2.bitwise_and(img, img, mask = fgmask)
+
 		index += 1
 		if (index % 16 != 0):
 			continue
