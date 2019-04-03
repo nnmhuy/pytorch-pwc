@@ -442,14 +442,14 @@ for i in range(14, 15):
 	cap = cv2.VideoCapture('/content/drive/My Drive/AIC_2019_Train_Cut_abs(1)/video/%d.mp4' % i)
 	index = 0
 	ret, currentFrame = cap.read()
-	currentFrame = zoomImgCorner(currentFrame)
+	# currentFrame = zoomImgCorner(currentFrame)
 	flowIndex = 0
 	while(cap.isOpened()):
 		ret, nextFrame = cap.read()
 		index += 1
 		# if (index % 16 != 0):
 		# 	continue
-		nextFrame = zoomImgCorner(nextFrame)
+		# nextFrame = zoomImgCorner(nextFrame)
 		cv2.imwrite('./images/first.png', currentFrame)
 		cv2.imwrite('./images/second.png', nextFrame)
 		flowIndex += 1
