@@ -451,7 +451,7 @@ for i in range(14, 15):
 		ret, nextFrame = cap.read()
 		
 		fgmask = fgbg.apply(nextFrame)
-		nextFrame = cv2.bitwise_and(nextFrame, nextFrames, mask = fgmask)
+		nextFrame = cv2.bitwise_and(nextFrame, nextFrame, mask = fgmask)
 
 		index += 1
 		if (index % 4 != 0):
